@@ -116,11 +116,17 @@
     cancion;
     artista;
     tono;
+    
     let data = {
       titulo: cancion.value,
       artista: artista.value,
       tono: tono.value,
     };
+    
+    if (!data.titulo.trim() || !data.artista.trim() || !data.tono.trim()) {
+        alert("Por favor ingresar todos los datos de la cancion");
+        return false;
+    }
     console.log(data);
     axios.post(url, data).then(() => getData());
   }
